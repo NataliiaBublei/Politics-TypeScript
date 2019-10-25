@@ -14,6 +14,7 @@ export class VerkhovnaRada {
 
     deleteFaction(factionName: Faction) {
         const indexToDelete = this.listOfFactions.findIndex((fac: Faction) => fac === factionName);
+
         this.listOfFactions.splice(indexToDelete, 1);
     }
 
@@ -53,5 +54,21 @@ export class VerkhovnaRada {
         }
     }
 
+    showAllBriberDeputiesFromAllFactions() {
+        this.listOfFactions.forEach((fac: Faction) => {
+            fac.showAllBriberDeputies();
+        })
+    }
 
+    showTheBiggestBriberDeputyInFactions() {
+        this.listOfFactions.forEach((fac: Faction) => {
+            fac.showTheBiggestBriberDeputy()
+        })
+    }
+
+    showAllDeputiesFromAllFaction() {
+        this.listOfFactions.forEach((fac: Faction) => {
+            fac.showAllDeputies()
+        })
+    }
 }

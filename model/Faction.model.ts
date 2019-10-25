@@ -33,7 +33,7 @@ export class Faction {
         this.listOfDeputies = [...honestDeputies];
     }
 
-    findTheBiggestBriberDeputy() {
+    showTheBiggestBriberDeputy() {
         const [theBiggestBriberDeputy] = this.listOfDeputies.sort((dep1: Deputy, dep2: Deputy) => {
             return dep2.sizeBribery - dep1.sizeBribery
         });
@@ -44,6 +44,14 @@ export class Faction {
     showAllDeputies() {
         this.listOfDeputies.forEach((dep: Deputy) => {
             console.log(dep)
+        })
+    }
+
+    showAllBriberDeputies(){
+        const briberDeputies = this.listOfDeputies.filter((dep: Deputy) => dep.bribery);
+
+        briberDeputies.forEach( dept => {
+            console.log(dept);
         })
     }
 
