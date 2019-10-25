@@ -9,7 +9,6 @@ const Nata = new Deputy(55, 175, 'Bublei', 'Nata', 21, true, 89000);
 const Lola = new Deputy(50, 168, 'Huk', 'Lola', 28, true, 56000);
 const Luba = new Deputy(70, 175, 'Malonchuk', 'Luba', 28, false, 0);
 
-
 const faction1 = new Faction([]);
 faction1.addDeputy(Vasya);
 faction1.addDeputy(Dima);
