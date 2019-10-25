@@ -11,16 +11,22 @@ export class Faction {
         this.listOfDeputies.push(obj)
     }
 
-    deleteDeputies(deputyToDelete: Deputy) {
-        const indexToDelete = this.listOfDeputies.findIndex((deputy: Deputy) => {
-            return deputyToDelete.name == deputy.name && deputyToDelete.surname == deputy.surname
+    deleteDeputy(deputyToDelete: Deputy) {
+        const indexToDelete = this.listOfDeputies.findIndex((dep: Deputy) => {
+            return  deputyToDelete.surname === dep.surname && deputyToDelete.name === dep.name
         });
 
         this.listOfDeputies.splice(indexToDelete, 1);
     }
 
+    deleteDeputyBySurname(deputySurname: string) {
+        const indexToDelete = this.listOfDeputies.findIndex( (dep: Deputy) => deputySurname === dep.surname);
+
+        this.listOfDeputies.splice(indexToDelete, 1)
+    }
+
     deleteAllBriberDeputies() {
-        const honestDeputies = this.listOfDeputies.filter((deputy: Deputy) => !deputy.bribery);
+        const honestDeputies = this.listOfDeputies.filter((dep: Deputy) => !dep.bribery);
 
         this.listOfDeputies.splice(0, this.listOfDeputies.length);
 
@@ -28,16 +34,16 @@ export class Faction {
     }
 
     findTheBiggestBriberDeputy() {
-        const [theBiggestBriberDeputy] = this.listOfDeputies.sort((deputy1: Deputy, deputy2: Deputy) => {
-            return deputy2.sizeBribery - deputy1.sizeBribery
+        const [theBiggestBriberDeputy] = this.listOfDeputies.sort((dep1: Deputy, dep2: Deputy) => {
+            return dep2.sizeBribery - dep1.sizeBribery
         });
 
         console.log(theBiggestBriberDeputy);
     }
 
     showAllDeputies() {
-        this.listOfDeputies.forEach((deputy: Deputy) => {
-            console.log(deputy)
+        this.listOfDeputies.forEach((dep: Deputy) => {
+            console.log(dep)
         })
     }
 
